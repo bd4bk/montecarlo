@@ -7,12 +7,8 @@
 
 ## Installation
 You can install this package with the following address: https://github.com/bd4bk/montecarlo.git
+by downloading the package and running the setup.py package
 ```bash
-pip install https://github.com/bd4bk/montecarlo.git
-```
-
-or by downloading the package and running the setup.py package
-```
 python setup.py install
 ```
 
