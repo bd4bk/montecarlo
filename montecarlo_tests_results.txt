@@ -1,0 +1,33 @@
+test_Die_init (__main__.TestMonteCarlo)
+Tests if Die initializes correctly by putting the faces in the Die's df index ... ok
+test_Game_init (__main__.TestMonteCarlo)
+tests if Game's initializer accurately and consistently stores the Die it is given ... ok
+test_anal_combo_index_shape (__main__.TestMonteCarlo)
+tests if Analyzer's combo() function creates index's of the correct shape(len should be equal to how many Die there are) ... ok
+test_anal_init (__main__.TestMonteCarlo)
+tests if Analyzer's initializer accurately stores the Game it is given ... ok
+test_anal_jackpot_df (__main__.TestMonteCarlo)
+tests if Analyzer's jackpot() function creates a DataFrame to store the results ... ok
+test_face_counts_shape (__main__.TestMonteCarlo)
+tests if Analyzer's face_counts() function creates a DataFrame of the correct shape to store the results (rolls, Die) ... ok
+test_play_index (__main__.TestMonteCarlo)
+tests if Game's play() creates a DataFrame  with an index of the rolls ... ok
+test_play_shape (__main__.TestMonteCarlo)
+tests if Game's play() creates a DataFrame of the correct shape (rolls, amt of Die) ... ok
+test_roll_length (__main__.TestMonteCarlo)
+tests if Die's roll() function creates a list of the same length as given to the function ... ok
+test_roll_vals (__main__.TestMonteCarlo)
+tests if a Die's roll() function produces values only within the faces ... ok
+test_show (__main__.TestMonteCarlo)
+test if Die's show() produces the same DataFrame as stored within Die ... ok
+test_show_shape (__main__.TestMonteCarlo)
+tests if Game's show() produces the expected shape (rolls, amt of Die) ... ok
+test_weight_change_fail (__main__.TestMonteCarlo)
+tests if Die's w_change() function does not change the weight if given an improper value ... ok
+test_weight_change_success (__main__.TestMonteCarlo)
+tests if Die's w_change() function will accurately change a face's weight given a string ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.021s
+
+OK

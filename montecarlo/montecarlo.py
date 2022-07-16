@@ -8,7 +8,7 @@ class Die:
     """
         Description: Die have faces, and each face has a weight (defaults to 1.). 
         Weights can be changed for individual faces. 
-        Die can be rolled to return a list of faces randomly selected based on their weights. Die can show its faces and 
+        Die can be rolled to return a list of faces randomly selected based on their weights. Die can show its faces and weights
         
         Attributes: None
 
@@ -131,9 +131,9 @@ class Analyzer:
     Description: Analyzer takes a Game and can provide various descriptive statistical properties about its play(). The DataFrames used to compute these properties are stored as Attributes once they are computed
     
     Attributes: 
-        jackpot = pd.DataFrame with the roll # as index and boolean values for if the roll was a jackpot or not
+        jackpots = pd.DataFrame with the roll # as index and boolean values for if the roll was a jackpot or not
         
-        combo = pd.DataFrame with a multi-columned index with each Die as an index, the rolled face as the index value, and 
+        combos = pd.DataFrame with a multi-columned index with each Die as an index, the rolled face as the index value, and 
         the amount of times the entire roll combination occured in the Game as the value
         
         face_count = pd.DataFrame with the roll # as index , the face values as columns, and the count of the face per roll as
@@ -153,7 +153,7 @@ class Analyzer:
         
     def jackpot(self):
         """
-        Description: Computes and returns (as an int) how many times the game resulted in all faces being identical. Also stores the results as the DataFrame jackpot
+        Description: Computes and returns (as an int) how many times the game resulted in all faces being identical. Also stores the results as the DataFrame jackpots
         
         Params: None
         
@@ -161,24 +161,24 @@ class Analyzer:
         """
         gamelist = self.game._df.values.tolist()
         data = [all(die == roll[0] for die in roll) for roll in self.game._df.values.tolist()]
-        self.jackpot = pd.DataFrame(
+        self.jackpots = pd.DataFrame(
             index = self.game._df.index,
             columns = ["jackpot_result"],
             data = data)
-        self.jackpot.index.name = "roll"
+        self.jackpots.index.name = "roll"
         self.jackpot_count = sum(data)
         return self.jackpot_count
         
     
     def combo(self):
         """
-        Description: Computes the distinct combinations of faces rolled and their counts. Stores the results in the DataFrame combo
+        Description: Computes the distinct combinations of faces rolled and their counts. Stores the results in the DataFrame combos
 
         Params: None
 
         Returns: None
         """
-        self.combo = self.game._df.apply(lambda x: pd.Series(sorted(x)),1).value_counts().to_frame()
+        self.combos = self.game._df.apply(lambda x: pd.Series(sorted(x)),1).value_counts().to_frame()
         
         #Non multi-index code (could use for easy graphing)
         # combo_dict = {}

@@ -82,13 +82,13 @@ class TestMonteCarlo(unittest.TestCase):
         """tests if Analyzer's jackpot() function creates a DataFrame to store the results"""
         self.fgame.play(5)
         self.fanal.jackpot()
-        self.assertIsInstance(self.fanal.jackpot, pd.DataFrame)
+        self.assertIsInstance(self.fanal.jackpots, pd.DataFrame)
         
     def test_anal_combo_index_shape(self):
         """tests if Analyzer's combo() function creates index's of the correct shape(len should be equal to how many Die there are)"""
         self.fgame.play(100)
         self.fanal.combo()
-        indexlist = self.fanal.combo.index.tolist()
+        indexlist = self.fanal.combos.index.tolist()
         self.assertEqual(len(indexlist[0]), 2)
         
     def test_face_counts_shape(self):
